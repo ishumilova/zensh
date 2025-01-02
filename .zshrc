@@ -80,6 +80,9 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
