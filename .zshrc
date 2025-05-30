@@ -86,3 +86,13 @@ bindkey "^[[1;5D" backward-word
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    export MAKEFLAGS="-j$(sysctl -n hw.logicalcpu)"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Linux
+    export MAKEFLAGS="-j$(nproc)"
+fi
+
+
